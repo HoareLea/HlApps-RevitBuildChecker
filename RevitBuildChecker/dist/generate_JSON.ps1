@@ -36,7 +36,7 @@ $jsonContent = @{
 } | ConvertTo-Json -Depth 10
 
 # Write JSON content to a file
-$jsonContent | Set-Content -Path "C:\sourcefiles\versions.json"
+$jsonContent | Set-Content -Path "C:\SourceFiles\HLApps-Deployment-master\RevitVersionsInfo.json"
 
 # Open the JSON file
-Invoke-Item -Path "C:\sourcefiles\versions.json"
+Invoke-Item -Path "C:\SourceFiles\HLApps-Deployment-master\RevitVersionsInfo.json"

@@ -88,3 +88,12 @@ C:\Users\jonesc4\source\repos\RevitBuildChecker\RevitBuildChecker\obj\Debug\Revi
 C:\Users\jonesc4\source\repos\RevitBuildChecker\RevitBuildChecker\obj\Debug\RevitBuildChecker.csproj.CoreCompileInputs.cache
 C:\Users\jonesc4\source\repos\RevitBuildChecker\RevitBuildChecker\obj\Debug\RevitBuildChecker.dll
 C:\Users\jonesc4\source\repos\RevitBuildChecker\RevitBuildChecker\obj\Debug\RevitBuildChecker.pdb
+C:\Users\jonesc4\source\repos\HoareLea\HlApps-RevitBuildChecker\RevitBuildChecker\dist\RevitBuildChecker.dll
+C:\Users\jonesc4\source\repos\HoareLea\HlApps-RevitBuildChecker\RevitBuildChecker\dist\RevitBuildChecker.pdb
+C:\Users\jonesc4\source\repos\HoareLea\HlApps-RevitBuildChecker\RevitBuildChecker\dist\Newtonsoft.Json.dll
+C:\Users\jonesc4\source\repos\HoareLea\HlApps-RevitBuildChecker\RevitBuildChecker\dist\Newtonsoft.Json.xml
+C:\Users\jonesc4\source\repos\HoareLea\HlApps-RevitBuildChecker\RevitBuildChecker\obj\Debug\RevitBuildChecker.csproj.AssemblyReference.cache
+C:\Users\jonesc4\source\repos\HoareLea\HlApps-RevitBuildChecker\RevitBuildChecker\obj\Debug\RevitBuildChecker.csproj.CoreCompileInputs.cache
+C:\Users\jonesc4\source\repos\HoareLea\HlApps-RevitBuildChecker\RevitBuildChecker\obj\Debug\RevitBuildChecker.csproj.CopyComplete
+C:\Users\jonesc4\source\repos\HoareLea\HlApps-RevitBuildChecker\RevitBuildChecker\obj\Debug\RevitBuildChecker.dll
+C:\Users\jonesc4\source\repos\HoareLea\HlApps-RevitBuildChecker\RevitBuildChecker\obj\Debug\RevitBuildChecker.pdb
