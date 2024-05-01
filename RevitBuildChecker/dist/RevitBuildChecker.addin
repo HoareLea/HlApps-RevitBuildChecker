@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<RevitAddIns>
+	<AddIn Type="Application">
+		<Name>Revit Build Checker</Name>
+		<Assembly>"RevitBuildChecker.dll"</Assembly>
+		<AddInId>27d59d6a-a510-4209-b66c-ad3f77988a4f</AddInId>
+		<FullClassName>RevitBuildChecker.App</FullClassName>
+		<VendorId>YourVendorId</VendorId>
+		<VendorDescription>Your Description Here</VendorDescription>
+	</AddIn>
+</RevitAddIns>

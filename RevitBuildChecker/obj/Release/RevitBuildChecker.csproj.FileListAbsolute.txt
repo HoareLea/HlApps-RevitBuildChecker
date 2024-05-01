@@ -1,0 +1,8 @@
+C:\Users\jonesc4\source\repos\RevitBuildChecker\RevitBuildChecker\bin\Release\RevitBuildChecker.dll
+C:\Users\jonesc4\source\repos\RevitBuildChecker\RevitBuildChecker\bin\Release\RevitBuildChecker.pdb
+C:\Users\jonesc4\source\repos\RevitBuildChecker\RevitBuildChecker\obj\Release\RevitBuildChecker.csproj.AssemblyReference.cache
+C:\Users\jonesc4\source\repos\RevitBuildChecker\RevitBuildChecker\obj\Release\RevitBuildChecker.csproj.CoreCompileInputs.cache
+C:\Users\jonesc4\source\repos\RevitBuildChecker\RevitBuildChecker\obj\Release\RevitBuildChecker.dll
+C:\Users\jonesc4\source\repos\RevitBuildChecker\RevitBuildChecker\obj\Release\RevitBuildChecker.pdb
+C:\Users\jonesc4\source\repos\RevitBuildChecker\RevitBuildChecker\dist\RevitBuildChecker.dll
+C:\Users\jonesc4\source\repos\RevitBuildChecker\RevitBuildChecker\dist\RevitBuildChecker.pdb
