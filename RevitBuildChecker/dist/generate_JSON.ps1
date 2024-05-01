@@ -21,7 +21,7 @@ foreach ($table in $tables) {
     if ($cleanRow -match '\s*(\d{4})\.\d+\.\d+\s*(\d+\.\d+\.\d+\.\d+)\s*\d{8}_(\d{4})\s*') {
         $year = $matches[1]
         $build = $matches[2]
-        $buildNumber = $matches[3]
+        #$buildNumber = $matches[3]
 
         # Add version data to the hashtable
         $versions[$year] = $build
