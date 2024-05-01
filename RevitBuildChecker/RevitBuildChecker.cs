@@ -1,9 +1,10 @@
 ﻿using Autodesk.Revit.UI;
 using Autodesk.Revit.ApplicationServices;
-using Newtonsoft.Json;
+//using Newtonsoft.Json;
 using System.IO;
 using System.Collections.Generic;
 using System;
+using System.Text.Json;
 
 namespace RevitBuildChecker
 {
@@ -26,8 +27,8 @@ namespace RevitBuildChecker
             try
             {
                 string jsonContent = File.ReadAllText(jsonFilePath);
-                RevitVersionsInfo versionsInfo = JsonConvert.DeserializeObject<RevitVersionsInfo>(jsonContent);
-
+                // RevitVersionsInfo versionsInfo = JsonConvert.DeserializeObject<RevitVersionsInfo>(jsonContent);
+                RevitVersionsInfo versionsInfo = JsonSerializer.Deserialize<RevitVersionsInfo>(jsonContent);
                 // Get the build version from the JSON file for the corresponding year
                 if (versionsInfo.Versions.TryGetValue(localYear, out string expectedVersion))
                 {
