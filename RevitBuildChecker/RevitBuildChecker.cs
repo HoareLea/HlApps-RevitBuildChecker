@@ -1,54 +1,22 @@
 using Autodesk.Revit.UI;
 using Autodesk.Revit.ApplicationServices;
-//using Newtonsoft.Json;
 using System.IO;
 using System.Collections.Generic;
 using System;
 using System.Text.Json;
 using System.Linq;
 using System.Reflection;
+using System.Net.Http;
 
 namespace RevitBuildChecker
 {
-    public class AssemblyResolver
-    {
-        public static List<string> AssemblyLocations = new List<string>();
-
-        public static void init()
-        {
-            AppDomain currentDomain = AppDomain.CurrentDomain;
-            currentDomain.AssemblyResolve += currentDomain_AssemblyResolve;
-            AssemblyLocations.Add(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location));
-
-        }
-
-        public static Assembly currentDomain_AssemblyResolve(object sender, ResolveEventArgs args)
-        {
-            string asmFileName = new AssemblyName(args.Name).Name;
-            foreach (string asmPath in AssemblyLocations)
-            {
-                DirectoryInfo asmDir = new DirectoryInfo(asmPath);
-                if (!asmDir.Exists) continue;
-
-                FileInfo asmFi = asmDir.EnumerateFiles(asmFileName + ".dll", SearchOption.AllDirectories).FirstOrDefault();
-
-                if (asmFi == null) asmFi = asmDir.EnumerateFiles(asmFileName + ".exe", SearchOption.AllDirectories).FirstOrDefault();
-
-
-                if (asmFi == null) continue;
-
-                Assembly assembly = Assembly.LoadFrom(asmFi.FullName);
-                return assembly;
-            }
-            return null;
-        }
-    }
-
     public class App : IExternalApplication
     {
+        private static readonly HttpClient client = new HttpClient();
+
         public Result OnStartup(UIControlledApplication application)
         {
-            AssemblyResolver.init();
+            //AssemblyResolver.init();
             // Get the local version information
             ControlledApplication controlledApp = application.ControlledApplication;
             string localVersionNumber = controlledApp.VersionNumber; // Example format: "23.1.30.97"
@@ -57,22 +25,24 @@ namespace RevitBuildChecker
             // Extract the year from the version number (first two digits)
             string localYear = "20" + localBuildVersion.Substring(0, 2); // This should correctly format the year as "2023"
 
-            // Path to your JSON file
-            string jsonFilePath = @"C:\SourceFiles\HLApps-Deployment-master\RevitVersionsInfo.json";
+            // URL to the JSON file on GitHub
+            string jsonUrl = "https://raw.githubusercontent.com/HoareLea/HlApps-RevitBuildChecker/main/RevitBuildChecker/dist/RevitVersionsInfo.json";
 
-            // Read and parse JSON file
             try
             {
-                string jsonContent = File.ReadAllText(jsonFilePath);
-                // RevitVersionsInfo versionsInfo = JsonConvert.DeserializeObject<RevitVersionsInfo>(jsonContent);
+                // Fetch and parse JSON file from GitHub synchronously
+                HttpResponseMessage response = client.GetAsync(jsonUrl).Result;  // Using .Result is generally not recommended except under specific constraints like this one.
+                response.EnsureSuccessStatusCode();
+                string jsonContent = response.Content.ReadAsStringAsync().Result; // Blocking call
                 RevitVersionsInfo versionsInfo = JsonSerializer.Deserialize<RevitVersionsInfo>(jsonContent);
+
                 // Get the build version from the JSON file for the corresponding year
                 if (versionsInfo.Versions.TryGetValue(localYear, out string expectedVersion))
                 {
                     // Compare versions
                     if (localBuildVersion.Equals(expectedVersion))
                     {
-                        TaskDialog.Show("Version Check", $" Your Revit {localYear} version is up to date.\nLocal Version: {localBuildVersion}");
+                        TaskDialog.Show("Version Check", $"Your Revit {localYear} version is up to date.\nLocal Version: {localBuildVersion}");
                     }
                     else
                     {
@@ -83,23 +53,14 @@ namespace RevitBuildChecker
                         mainDialog.AddCommandLink(TaskDialogCommandLinkId.CommandLink1, "Open Software Center");
 
                         TaskDialogResult result = mainDialog.Show();
-                       
+
                         // Check if the command link was clicked
                         if (result == TaskDialogResult.CommandLink1)
                         {
-                            try
-                            {
-                                TaskDialog.Show("IMPORTANT", "Please close Revit before updating.");
-                                // Attempt to start the external application
-                                System.Diagnostics.Process.Start(@"C:\windows\CCM\SCClient.exe", "softwarecenter:Page=AvailableSoftware FilterType=4");
-                            }
-                            catch (Exception ex)
-                            {
-                                // Handle exceptions, for example if the file is not found
-                                TaskDialog.Show("Error", "Failed to open Software Center: " + ex.Message);
-                            }
+                            TaskDialog.Show("IMPORTANT", "Please close Revit before updating.");
+                            // Attempt to start the external application
+                            System.Diagnostics.Process.Start(@"C:\windows\CCM\SCClient.exe", "softwarecenter:Page=AvailableSoftware FilterType=4");
                         }
-
                     }
                 }
                 else
@@ -108,14 +69,9 @@ namespace RevitBuildChecker
                     return Result.Failed;
                 }
             }
-            catch (IOException ex)
+            catch (Exception ex) // Catching all exceptions to simplify the example. Normally, you might handle different exceptions separately.
             {
-                TaskDialog.Show("Error", "Failed to read the version file: " + ex.Message);
-                return Result.Failed;
-            }
-            catch (JsonException ex)
-            {
-                TaskDialog.Show("Error", "Failed to parse the version file: " + ex.Message);
+                TaskDialog.Show("Error", "Error accessing the web resource: " + ex.Message);
                 return Result.Failed;
             }
 
