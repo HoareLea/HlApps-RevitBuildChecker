@@ -1,16 +1,54 @@
-﻿using Autodesk.Revit.UI;
+using Autodesk.Revit.UI;
 using Autodesk.Revit.ApplicationServices;
-using Newtonsoft.Json;
+//using Newtonsoft.Json;
 using System.IO;
 using System.Collections.Generic;
 using System;
+using System.Text.Json;
+using System.Linq;
+using System.Reflection;
 
 namespace RevitBuildChecker
 {
+    public class AssemblyResolver
+    {
+        public static List<string> AssemblyLocations = new List<string>();
+
+        public static void init()
+        {
+            AppDomain currentDomain = AppDomain.CurrentDomain;
+            currentDomain.AssemblyResolve += currentDomain_AssemblyResolve;
+            AssemblyLocations.Add(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location));
+
+        }
+
+        public static Assembly currentDomain_AssemblyResolve(object sender, ResolveEventArgs args)
+        {
+            string asmFileName = new AssemblyName(args.Name).Name;
+            foreach (string asmPath in AssemblyLocations)
+            {
+                DirectoryInfo asmDir = new DirectoryInfo(asmPath);
+                if (!asmDir.Exists) continue;
+
+                FileInfo asmFi = asmDir.EnumerateFiles(asmFileName + ".dll", SearchOption.AllDirectories).FirstOrDefault();
+
+                if (asmFi == null) asmFi = asmDir.EnumerateFiles(asmFileName + ".exe", SearchOption.AllDirectories).FirstOrDefault();
+
+
+                if (asmFi == null) continue;
+
+                Assembly assembly = Assembly.LoadFrom(asmFi.FullName);
+                return assembly;
+            }
+            return null;
+        }
+    }
+
     public class App : IExternalApplication
     {
         public Result OnStartup(UIControlledApplication application)
         {
+            AssemblyResolver.init();
             // Get the local version information
             ControlledApplication controlledApp = application.ControlledApplication;
             string localVersionNumber = controlledApp.VersionNumber; // Example format: "23.1.30.97"
@@ -26,8 +64,8 @@ namespace RevitBuildChecker
             try
             {
                 string jsonContent = File.ReadAllText(jsonFilePath);
-                RevitVersionsInfo versionsInfo = JsonConvert.DeserializeObject<RevitVersionsInfo>(jsonContent);
-
+                // RevitVersionsInfo versionsInfo = JsonConvert.DeserializeObject<RevitVersionsInfo>(jsonContent);
+                RevitVersionsInfo versionsInfo = JsonSerializer.Deserialize<RevitVersionsInfo>(jsonContent);
                 // Get the build version from the JSON file for the corresponding year
                 if (versionsInfo.Versions.TryGetValue(localYear, out string expectedVersion))
                 {
@@ -45,12 +83,13 @@ namespace RevitBuildChecker
                         mainDialog.AddCommandLink(TaskDialogCommandLinkId.CommandLink1, "Open Software Center");
 
                         TaskDialogResult result = mainDialog.Show();
-                        TaskDialog.Show("*IMPORTANT*","Please close Revit before updating.");
+                       
                         // Check if the command link was clicked
                         if (result == TaskDialogResult.CommandLink1)
                         {
                             try
                             {
+                                TaskDialog.Show("IMPORTANT", "Please close Revit before updating.");
                                 // Attempt to start the external application
                                 System.Diagnostics.Process.Start(@"C:\windows\CCM\SCClient.exe", "softwarecenter:Page=AvailableSoftware FilterType=4");
                             }
