@@ -400,3 +400,4 @@ FodyWeavers.xsd
 .vs/*
 .vscode/*
 ./obj/Debug/*
+/RevitBuildChecker/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
