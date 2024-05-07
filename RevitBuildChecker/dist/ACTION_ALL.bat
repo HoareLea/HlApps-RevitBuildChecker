@@ -1,6 +1,7 @@
 REM  Change the current directory to the RevitBuildChecker distribution folder
 REM cd C:\Users\jonesc4\source\repos\HoareLea\HlApps-RevitBuildChecker\RevitBuildChecker\dist
-
+echo code signing
+signtool.exe sign /fd SHA256 /f CharlieJones_CodeSigning.pfx /p  AegOy!2V9Z?6 RevitBuildChecker.dll
 REM  Check if the deployment directory exists
 if exist "C:\SourceFiles\HLApps-Deployment-master\" (
     REM If it exists, copy the updated RevitVersionsInfo.json into it
@@ -83,6 +84,7 @@ if exist "C:\ProgramData\Autodesk\Revit\Addins\2025\RevitBuildChecker\" (
     copy /y "RevitBuildChecker.addin" "C:\ProgramData\Autodesk\Revit\Addins\2025\RevitBuildChecker.addin"
     copy /y "RevitBuildChecker.dll" "C:\ProgramData\Autodesk\Revit\Addins\2025\RevitBuildChecker\RevitBuildChecker.dll"
 )
-
+echo add cert
+WdCertMgr.Exe -add Public_CharlieJones_CodeSigning.cer -s -r localMachine trustedpublisher
  REM Pause the script execution to review the output
 pause

@@ -21,7 +21,8 @@ namespace RevitBuildChecker
             ControlledApplication controlledApp = application.ControlledApplication;
             string localVersionNumber = controlledApp.VersionNumber; // Example format: "23.1.30.97"
             string localBuildVersion = controlledApp.VersionBuild; // Example format: "20230101_1500(x64)"
-
+            string subVersionNumber = controlledApp.SubVersionNumber;
+            string localVersionName = controlledApp.VersionName;
             // Extract the year from the version number (first two digits)
             string localYear = "20" + localBuildVersion.Substring(0, 2); // This should correctly format the year as "2023"
 
@@ -48,7 +49,7 @@ namespace RevitBuildChecker
                     {
                         TaskDialog mainDialog = new TaskDialog("Critical Update Alert");
                         mainDialog.MainInstruction = "CRITICAL ALERT\r\nUpdate your Revit software to prevent model corruption.";
-                        mainDialog.MainContent = $"Your Version: {localBuildVersion}\nLatest Version: {expectedVersion}";
+                        mainDialog.MainContent = $"Your Version: {localBuildVersion}\nLatest Version: {expectedVersion}\n{localVersionNumber}\n{localVersionName}\n{localBuildVersion}";
                         mainDialog.FooterText = "Contact DigitalSupport@hoarelea.com if you have any issues.";
                         mainDialog.AddCommandLink(TaskDialogCommandLinkId.CommandLink1, "Open Software Center");
 
