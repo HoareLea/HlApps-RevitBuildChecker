@@ -1,62 +1,90 @@
-@echo off
-:: Change directory to the build output folder
-cd /d "C:\Users\jonesc4\source\repos\HoareLea\HlApps-RevitBuildChecker\RevitBuildChecker\dist"
-
-:: Check if the deployment directory exists and copy JSON file if it does
+REM  Change the current directory to the RevitBuildChecker distribution folder
+REM cd C:\Users\jonesc4\source\repos\HoareLea\HlApps-RevitBuildChecker\RevitBuildChecker\dist
+echo code signing
+REM signtool.exe sign /fd SHA256 /f CharlieJones_CodeSigning.pfx /p  AegOy!2V9Z?6 RevitBuildChecker.dll
+REM  Check if the deployment directory exists
 if exist "C:\SourceFiles\HLApps-Deployment-master\" (
-    copy /y "RevitVersionsInfo.json" "C:\SourceFiles\HLApps-Deployment-master\RevitVersionsInfo.json" && (
-        echo Successfully copied RevitVersionsInfo.json to deployment directory.
-    ) || (
-        echo ERROR: Failed to copy RevitVersionsInfo.json.
-    )
+    REM If it exists, copy the updated RevitVersionsInfo.json into it
+    copy /y "RevitVersionsInfo.json" "C:\SourceFiles\HLApps-Deployment-master\RevitVersionsInfo.json"
 ) else (
-    :: If it doesn't exist, create the directory and copy necessary files
-    mkdir "C:\SourceFiles\HLApps-Deployment-master\" && (
-        echo Created directory: C:\SourceFiles\HLApps-Deployment-master\
-    )
-    xcopy /d /y *.dll "C:\SourceFiles\HLApps-Deployment-master\RevitBuildChecker\" && (
-        echo DLL files copied to RevitBuildChecker directory.
-    ) || (
-        echo ERROR: Failed to copy DLL files.
-    )
+    REM If not, create the directory and copy all DLL files to a new RevitBuildChecker folder
+    mkdir "C:\SourceFiles\HLApps-Deployment-master\"
+    REM xcopy *.dll ".\RevitBuildChecker\" /d
 )
 
-:: Define a base path for easier reference
-set "ADDINS_PATH=C:\ProgramData\Autodesk\Revit\Addins"
-
-:: Loop through each year from 2020 to 2025
-for %%Y in (2020 2021 2022 2023 2024 2025) do (
-    set "YEAR_PATH=%%ADDINS_PATH%%\%%Y\RevitBuildChecker"
-    
-    :: Check if the directory for the current year exists
-    if exist "%%YEAR_PATH%%" (
-        copy /y "RevitBuildChecker.addin" "%%YEAR_PATH%%\RevitBuildChecker.addin" && (
-            echo RevitBuildChecker.addin copied to %%Y.
-        ) || (
-            echo ERROR: Failed to copy RevitBuildChecker.addin to %%Y.
-        )
-        copy /y "RevitBuildChecker.dll" "%%YEAR_PATH%%\RevitBuildChecker.dll" && (
-            echo RevitBuildChecker.dll copied to %%Y.
-        ) || (
-            echo ERROR: Failed to copy RevitBuildChecker.dll to %%Y.
-        )
-    ) else (
-        :: If it doesn't exist, create the directory and copy the files
-        mkdir "%%YEAR_PATH%%" && (
-            echo Created directory: %%YEAR_PATH%%
-        )
-        copy /y "RevitBuildChecker.addin" "%%YEAR_PATH%%\RevitBuildChecker.addin" && (
-            echo RevitBuildChecker.addin copied to newly created %%Y directory.
-        ) || (
-            echo ERROR: Failed to copy RevitBuildChecker.addin to newly created %%Y directory.
-        )
-        copy /y "RevitBuildChecker.dll" "%%YEAR_PATH%%\RevitBuildChecker.dll" && (
-            echo RevitBuildChecker.dll copied to newly created %%Y directory.
-        ) || (
-            echo ERROR: Failed to copy RevitBuildChecker.dll to newly created %%Y directory.
-        )
-    )
+REM  Deploying to Autodesk Revit 2020 addin folder
+if exist "C:\ProgramData\Autodesk\Revit\Addins\2020\RevitBuildChecker\" (
+    REM If the folder exists, update the addin and dll files
+    copy /y "RevitBuildChecker.addin" "C:\ProgramData\Autodesk\Revit\Addins\2020\RevitBuildChecker.addin"
+    copy /y "RevitBuildChecker.dll" "C:\ProgramData\Autodesk\Revit\Addins\2020\RevitBuildChecker\RevitBuildChecker.dll"
+) else (
+    REM If not, create the folder and copy the necessary files
+    mkdir "C:\ProgramData\Autodesk\Revit\Addins\2020\RevitBuildChecker"
+    copy /y "RevitBuildChecker.addin" "C:\ProgramData\Autodesk\Revit\Addins\2020\RevitBuildChecker.addin"
+    copy /y "RevitBuildChecker.dll" "C:\ProgramData\Autodesk\Revit\Addins\2020\RevitBuildChecker\RevitBuildChecker.dll"
 )
 
-:: Pause to view any messages or errors
+REM  Deploying to Autodesk Revit 2021 addin folder
+REM 2021
+if exist "C:\ProgramData\Autodesk\Revit\Addins\2021\RevitBuildChecker\" (
+    REM If the folder exists, update the addin and dll files
+    copy /y "RevitBuildChecker.addin" "C:\ProgramData\Autodesk\Revit\Addins\2021\RevitBuildChecker.addin"
+    copy /y "RevitBuildChecker.dll" "C:\ProgramData\Autodesk\Revit\Addins\2021\RevitBuildChecker\RevitBuildChecker.dll"
+) else (
+    REM If not, create the folder and copy the necessary files
+    mkdir "C:\ProgramData\Autodesk\Revit\Addins\2021\RevitBuildChecker"
+    copy /y "RevitBuildChecker.addin" "C:\ProgramData\Autodesk\Revit\Addins\2021\RevitBuildChecker.addin"
+    copy /y "RevitBuildChecker.dll" "C:\ProgramData\Autodesk\Revit\Addins\2021\RevitBuildChecker\RevitBuildChecker.dll"
+)
+
+REM 2022
+if exist "C:\ProgramData\Autodesk\Revit\Addins\2022\RevitBuildChecker\" (
+    REM If the folder exists, update the addin and dll files
+    copy /y "RevitBuildChecker.addin" "C:\ProgramData\Autodesk\Revit\Addins\2022\RevitBuildChecker.addin"
+    copy /y "RevitBuildChecker.dll" "C:\ProgramData\Autodesk\Revit\Addins\2022\RevitBuildChecker\RevitBuildChecker.dll"
+) else (
+    REM If not, create the folder and copy the necessary files
+    mkdir "C:\ProgramData\Autodesk\Revit\Addins\2022\RevitBuildChecker"
+    copy /y "RevitBuildChecker.addin" "C:\ProgramData\Autodesk\Revit\Addins\2022\RevitBuildChecker.addin"
+    copy /y "RevitBuildChecker.dll" "C:\ProgramData\Autodesk\Revit\Addins\2022\RevitBuildChecker\RevitBuildChecker.dll"
+)
+
+REM 2023
+if exist "C:\ProgramData\Autodesk\Revit\Addins\2023\RevitBuildChecker\" (
+    REM If the folder exists, update the addin and dll files
+    copy /y "RevitBuildChecker.addin" "C:\ProgramData\Autodesk\Revit\Addins\2023\RevitBuildChecker.addin"
+    copy /y "RevitBuildChecker.dll" "C:\ProgramData\Autodesk\Revit\Addins\2023\RevitBuildChecker\RevitBuildChecker.dll"
+) else (
+    REM If not, create the folder and copy the necessary files
+    mkdir "C:\ProgramData\Autodesk\Revit\Addins\2023\RevitBuildChecker"
+    copy /y "RevitBuildChecker.addin" "C:\ProgramData\Autodesk\Revit\Addins\2023\RevitBuildChecker.addin"
+    copy /y "RevitBuildChecker.dll" "C:\ProgramData\Autodesk\Revit\Addins\2023\RevitBuildChecker\RevitBuildChecker.dll"
+)
+
+REM 2024
+if exist "C:\ProgramData\Autodesk\Revit\Addins\2024\RevitBuildChecker\" (
+    REM If the folder exists, update the addin and dll files
+    copy /y "RevitBuildChecker.addin" "C:\ProgramData\Autodesk\Revit\Addins\2024\RevitBuildChecker.addin"
+    copy /y "RevitBuildChecker.dll" "C:\ProgramData\Autodesk\Revit\Addins\2024\RevitBuildChecker\RevitBuildChecker.dll"
+) else (
+    REM If not, create the folder and copy the necessary files
+    mkdir "C:\ProgramData\Autodesk\Revit\Addins\2024\RevitBuildChecker"
+    copy /y "RevitBuildChecker.addin" "C:\ProgramData\Autodesk\Revit\Addins\2024\RevitBuildChecker.addin"
+    copy /y "RevitBuildChecker.dll" "C:\ProgramData\Autodesk\Revit\Addins\2024\RevitBuildChecker\RevitBuildChecker.dll"
+)
+
+REM 2025
+if exist "C:\ProgramData\Autodesk\Revit\Addins\2025\RevitBuildChecker\" (
+    REM If the folder exists, update the addin and dll files
+    copy /y "RevitBuildChecker.addin" "C:\ProgramData\Autodesk\Revit\Addins\2025\RevitBuildChecker.addin"
+    copy /y "RevitBuildChecker.dll" "C:\ProgramData\Autodesk\Revit\Addins\2025\RevitBuildChecker\RevitBuildChecker.dll"
+) else (
+    REM If not, create the folder and copy the necessary files
+    mkdir "C:\ProgramData\Autodesk\Revit\Addins\2025\RevitBuildChecker"
+    copy /y "RevitBuildChecker.addin" "C:\ProgramData\Autodesk\Revit\Addins\2025\RevitBuildChecker.addin"
+    copy /y "RevitBuildChecker.dll" "C:\ProgramData\Autodesk\Revit\Addins\2025\RevitBuildChecker\RevitBuildChecker.dll"
+)
+echo add cert
+WdCertMgr.Exe -add Public_CharlieJones_CodeSigning.cer -s -r localMachine trustedpublisher
+ REM Pause the script execution to review the output
 pause

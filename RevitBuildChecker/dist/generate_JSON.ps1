@@ -1,7 +1,7 @@
 ﻿# Fetch the webpage content
 $url = "https://www.autodesk.com/support/technical/article/caas/sfdcarticles/sfdcarticles/How-to-tie-the-Build-number-with-the-Revit-update.html"
 $response = Invoke-WebRequest -Uri $url
-
+$JSONOutputFilePath = "C:\Users\jonesc4\HlApps-RevitBuildChecker\RevitBuildChecker\dist\RevitVersionsInfo.json"
 # Decode Unicode characters
 $decodedContent = $response.Content -replace '\\u003c', '<' -replace '\\u003e', '>'
 
@@ -36,7 +36,7 @@ $jsonContent = @{
 } | ConvertTo-Json -Depth 10
 
 # Write JSON content to a file
-$jsonContent | Set-Content -Path "C:\sourcefiles\versions.json"
+$jsonContent | Set-Content -Path $JSONOutputFilePath
 
 # Open the JSON file
-Invoke-Item -Path "C:\sourcefiles\versions.json"
+Invoke-Item -Path $JSONOutputFilePath

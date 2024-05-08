@@ -1,34 +1,47 @@
 @echo off
-SETLOCAL EnableExtensions
+REM Change the current directory to the RevitBuildChecker distribution folder
+::cd C:\Users\jonesc4\source\repos\HoareLea\HlApps-RevitBuildChecker\RevitBuildChecker\dist
 
-set "TARGET_ROOT=C:\ProgramData\Autodesk\Revit\Addins"
+REM Check if the deployment directory exists and delete the RevitVersionsInfo.json file
+if exist "C:\SourceFiles\HLApps-Deployment-master\RevitVersionsInfo.json" (
+    del /f /q "C:\SourceFiles\HLApps-Deployment-master\RevitVersionsInfo.json"
+)
 
-echo Deleting files...
+REM Deleting deployed files and the folder in Autodesk Revit 2020 addin directory
+if exist "C:\ProgramData\Autodesk\Revit\Addins\2020\RevitBuildChecker\" (
+    del /f /q "C:\ProgramData\Autodesk\Revit\Addins\2020\RevitBuildChecker\*.*"
+    rmdir /s /q "C:\ProgramData\Autodesk\Revit\Addins\2020\RevitBuildChecker"
+)
+del /f /q "C:\ProgramData\Autodesk\Revit\Addins\2020\RevitBuildChecker.addin"
+REM Deleting deployed files and the folder in Autodesk Revit 2021 addin directory
+if exist "C:\ProgramData\Autodesk\Revit\Addins\2021\RevitBuildChecker\" (
+    del /f /q "C:\ProgramData\Autodesk\Revit\Addins\2021\RevitBuildChecker\*.*"
+    rmdir /s /q "C:\ProgramData\Autodesk\Revit\Addins\2021\RevitBuildChecker"
+)
+del /f /q "C:\ProgramData\Autodesk\Revit\Addins\2021\RevitBuildChecker.addin"
+REM Deleting deployed files and the folder in Autodesk Revit 2022 addin directory
+if exist "C:\ProgramData\Autodesk\Revit\Addins\2022\RevitBuildChecker\" (
+    del /f /q "C:\ProgramData\Autodesk\Revit\Addins\2022\RevitBuildChecker\*.*"
+    rmdir /s /q "C:\ProgramData\Autodesk\Revit\Addins\2022\RevitBuildChecker"
+)
+del /f /q "C:\ProgramData\Autodesk\Revit\Addins\2022\RevitBuildChecker.addin"
+REM Deleting deployed files and the folder in Autodesk Revit 2023 addin directory
+if exist "C:\ProgramData\Autodesk\Revit\Addins\2023\RevitBuildChecker\" (
+    del /f /q "C:\ProgramData\Autodesk\Revit\Addins\2023\RevitBuildChecker\*.*"
+    rmdir /s /q "C:\ProgramData\Autodesk\Revit\Addins\2023\RevitBuildChecker"
+)
+del /f /q "C:\ProgramData\Autodesk\Revit\Addins\2023\RevitBuildChecker.addin"
+REM Deleting deployed files and the folder in Autodesk Revit 2024 addin directory
+if exist "C:\ProgramData\Autodesk\Revit\Addins\2024\RevitBuildChecker\" (
+    del /f /q "C:\ProgramData\Autodesk\Revit\Addins\2024\RevitBuildChecker\*.*"
+    rmdir /s /q "C:\ProgramData\Autodesk\Revit\Addins\2024\RevitBuildChecker"
+)
+del /f /q "C:\ProgramData\Autodesk\Revit\Addins\2024\RevitBuildChecker.addin"
+REM Deleting deployed files and the folder in Autodesk Revit 2025 addin directory
+if exist "C:\ProgramData\Autodesk\Revit\Addins\2025\RevitBuildChecker\" (
+    del /f /q "C:\ProgramData\Autodesk\Revit\Addins\2025\RevitBuildChecker\*.*"
+    rmdir /s /q "C:\ProgramData\Autodesk\Revit\Addins\2025\RevitBuildChecker"
+)
+del /f /q "C:\ProgramData\Autodesk\Revit\Addins\2025\RevitBuildChecker.addin"
 
-del /q "%TARGET_ROOT%\2020\RevitBuildChecker.addin"
-del /q "%TARGET_ROOT%\2020\RevitBuildChecker.dll"
-del /q "%TARGET_ROOT%\2020\RevitVersionsInfo.json"
-
-del /q "%TARGET_ROOT%\2021\RevitBuildChecker.addin"
-del /q "%TARGET_ROOT%\2021\RevitBuildChecker.dll"
-del /q "%TARGET_ROOT%\2021\RevitVersionsInfo.json"
-
-del /q "%TARGET_ROOT%\2022\RevitBuildChecker.addin"
-del /q "%TARGET_ROOT%\2022\RevitBuildChecker.dll"
-del /q "%TARGET_ROOT%\2022\RevitVersionsInfo.json"
-
-del /q "%TARGET_ROOT%\2023\RevitBuildChecker.addin"
-del /q "%TARGET_ROOT%\2023\RevitBuildChecker.dll"
-del /q "%TARGET_ROOT%\2023\RevitVersionsInfo.json"
-
-del /q "%TARGET_ROOT%\2024\RevitBuildChecker.addin"
-del /q "%TARGET_ROOT%\2024\RevitBuildChecker.dll"
-del /q "%TARGET_ROOT%\2024\RevitVersionsInfo.json"
-
-del /q "%TARGET_ROOT%\2025\RevitBuildChecker.addin"
-del /q "%TARGET_ROOT%\2025\RevitBuildChecker.dll"
-del /q "%TARGET_ROOT%\2025\RevitVersionsInfo.json"
-
-echo Deletion complete.
-
-ENDLOCAL
+pause

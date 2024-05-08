@@ -2,7 +2,7 @@
 <RevitAddIns>
 	<AddIn Type="Application">
 		<Name>Revit Build Checker</Name>
-		<Assembly>"RevitBuildChecker.dll"</Assembly>
+		<Assembly>RevitBuildChecker/RevitBuildChecker.dll</Assembly>
 		<AddInId>27d59d6a-a510-4209-b66c-ad3f77988a4f</AddInId>
 		<FullClassName>RevitBuildChecker.App</FullClassName>
 		<VendorId>YourVendorId</VendorId>
