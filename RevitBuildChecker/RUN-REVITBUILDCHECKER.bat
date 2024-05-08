@@ -1,4 +1,4 @@
-"C:\Program Files\7-Zip\7z.exe" x "C:\Users\jonesc4\HlApps-RevitBuildChecker\RevitBuildChecker\dist.7z" -o"C:\Users\jonesc4\OneDrive - Tetra Tech, Inc\Desktop\CJTemp" -aoa
-cd "C:\Users\jonesc4\OneDrive - Tetra Tech, Inc\Desktop\CJTemp\dist"
+"C:\Program Files\7-Zip\7z.exe" x "C:\Users\jonesc4\HlApps-RevitBuildChecker\RevitBuildChecker\dist.7z" -o"C:\windows\temp" -aoa
+cd "C:\windows\temp\dist"
 
 ACTION_ALL.BAT

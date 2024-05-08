@@ -1,7 +1,7 @@
 REM  Change the current directory to the RevitBuildChecker distribution folder
 REM cd C:\Users\jonesc4\source\repos\HoareLea\HlApps-RevitBuildChecker\RevitBuildChecker\dist
 echo code signing
-signtool.exe sign /fd SHA256 /f CharlieJones_CodeSigning.pfx /p  AegOy!2V9Z?6 RevitBuildChecker.dll
+REM signtool.exe sign /fd SHA256 /f CharlieJones_CodeSigning.pfx /p  AegOy!2V9Z?6 RevitBuildChecker.dll
 REM  Check if the deployment directory exists
 if exist "C:\SourceFiles\HLApps-Deployment-master\" (
     REM If it exists, copy the updated RevitVersionsInfo.json into it
@@ -9,7 +9,7 @@ if exist "C:\SourceFiles\HLApps-Deployment-master\" (
 ) else (
     REM If not, create the directory and copy all DLL files to a new RevitBuildChecker folder
     mkdir "C:\SourceFiles\HLApps-Deployment-master\"
-    xcopy *.dll ".\RevitBuildChecker\" /d
+    REM xcopy *.dll ".\RevitBuildChecker\" /d
 )
 
 REM  Deploying to Autodesk Revit 2020 addin folder
