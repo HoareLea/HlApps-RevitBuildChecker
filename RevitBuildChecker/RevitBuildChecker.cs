@@ -119,7 +119,7 @@ namespace RevitBuildChecker
                                     // Attempt to start the external application
                                     System.Diagnostics.Process.Start(@"C:\windows\CCM\SCClient.exe", "softwarecenter:Page=AvailableSoftware FilterType=4");
                                 }
-                                TaskDialog.Show("NOTLATEST", "Local build version:" + localBuildVersion + " officialRelease:" + officialRelease+ " localrelease: "); 
+                                //TaskDialog.Show("NOTLATEST", "Local build version:" + localBuildVersion + " officialRelease:" + officialRelease+ " localrelease: "); 
                             }
                         }
                         //else { TaskDialog.Show("ERROR", "localBuildVersion: " + localBuildVersion + " Official release: " + officialRelease + " localversionnumber: " + localVersionNumber); }
