@@ -36,7 +36,7 @@ $jsonContent = @{
 } | ConvertTo-Json -Depth 10
 
 # Write JSON content to a file
-$jsonContent | Set-Content -Path dist\$JSONOutputFilePath
+$jsonContent | Set-Content -Path $JSONOutputFilePath
 
 # Open the JSON file
-Invoke-Item -Path dist\$JSONOutputFilePath
+Invoke-Item -Path $JSONOutputFilePath
