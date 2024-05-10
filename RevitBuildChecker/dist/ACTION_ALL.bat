@@ -1,7 +1,4 @@
 REM  Change the current directory to the RevitBuildChecker distribution folder
-REM cd C:\Users\jonesc4\source\repos\HoareLea\HlApps-RevitBuildChecker\RevitBuildChecker\dist
-echo code signing
-REM signtool.exe sign /fd SHA256 /f CharlieJones_CodeSigning.pfx /p  AegOy!2V9Z?6 RevitBuildChecker.dll
 REM  Check if the deployment directory exists
 if exist "C:\SourceFiles\HLApps-Deployment-master\" (
     REM If it exists, copy the updated RevitVersionsInfo.json into it
