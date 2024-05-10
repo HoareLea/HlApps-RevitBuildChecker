@@ -66,7 +66,7 @@ namespace RevitBuildChecker
                     // Compare versions
                     if (localBuildVersion.Equals(expectedVersion))
                     {
-                        TaskDialog.Show("Version Check", $"Your Revit {localYear} version is up to date.\nLocal Version: {localBuildVersion}");
+                        //TaskDialog.Show("Version Check", $"Your Revit {localYear} version is up to date.\nLocal Version: {localBuildVersion}");
                     }
                     else
                     {
@@ -100,7 +100,7 @@ namespace RevitBuildChecker
                         {
                             if (localBuildVersion.Equals("20220517_1515(x64)"))
                             {
-                                TaskDialog.Show("Version Check", $"Your Revit {localYear} version is up to date.\nLocal Version: {localBuildVersion}\nExpected version: 20220517_1515(x64)");
+                                //TaskDialog.Show("Version Check", $"Your Revit {localYear} version is up to date.\nLocal Version: {localBuildVersion}\nExpected version: 20220517_1515(x64)");
                             }
                             else 
                             {
@@ -130,7 +130,7 @@ namespace RevitBuildChecker
             
             catch (Exception ex) // Catching all exceptions to simplify the example. Normally, you might handle different exceptions separately.
             {
-                TaskDialog.Show("Error", "Error accessing the web resource: " + ex.Message);
+                //TaskDialog.Show("Error", "Error accessing the web resource: " + ex.Message);
                 return Result.Failed;
             }
 

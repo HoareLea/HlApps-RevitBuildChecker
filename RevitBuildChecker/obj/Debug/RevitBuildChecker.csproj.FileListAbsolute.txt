@@ -114,3 +114,5 @@ C:\Users\jonesc4\HlApps-RevitBuildChecker\RevitBuildChecker\obj\Debug\RevitBuild
 C:\Users\jonesc4\HlApps-RevitBuildChecker\RevitBuildChecker\obj\Debug\RevitBuildChecker.csproj.CopyComplete
 C:\Users\jonesc4\HlApps-RevitBuildChecker\RevitBuildChecker\obj\Debug\RevitBuildChecker.dll
 C:\Users\jonesc4\HlApps-RevitBuildChecker\RevitBuildChecker\obj\Debug\RevitBuildChecker.pdb
+C:\Users\jonesc4\HlApps-RevitBuildChecker\RevitBuildChecker\dist\RevitDBAPI.dll
+C:\Users\jonesc4\HlApps-RevitBuildChecker\RevitBuildChecker\dist\System.Net.Http.dll
