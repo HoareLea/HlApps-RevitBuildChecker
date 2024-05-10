@@ -6,6 +6,6 @@
 		<AddInId>27d59d6a-a510-4209-b66c-ad3f77988a4f</AddInId>
 		<FullClassName>RevitBuildChecker.App</FullClassName>
 		<VendorId>HoareLea</VendorId>
-		<VendorDescription>On startup application to check for updates.</VendorDescription>
+		<VendorDescription>DigitalSupport@hoarelea.com</VendorDescription>
 	</AddIn>
 </RevitAddIns>
