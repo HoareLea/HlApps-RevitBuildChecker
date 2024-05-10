@@ -5,7 +5,7 @@
 		<Assembly>RevitBuildChecker/RevitBuildChecker.dll</Assembly>
 		<AddInId>27d59d6a-a510-4209-b66c-ad3f77988a4f</AddInId>
 		<FullClassName>RevitBuildChecker.App</FullClassName>
-		<VendorId>YourVendorId</VendorId>
-		<VendorDescription>Your Description Here</VendorDescription>
+		<VendorId>HoareLea</VendorId>
+		<VendorDescription>On startup application to check for updates.</VendorDescription>
 	</AddIn>
 </RevitAddIns>
