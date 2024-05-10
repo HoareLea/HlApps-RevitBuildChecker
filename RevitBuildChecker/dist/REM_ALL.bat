@@ -1,7 +1,5 @@
 @echo off
 REM Change the current directory to the RevitBuildChecker distribution folder
-::cd C:\Users\jonesc4\source\repos\HoareLea\HlApps-RevitBuildChecker\RevitBuildChecker\dist
-
 REM Check if the deployment directory exists and delete the RevitVersionsInfo.json file
 if exist "C:\SourceFiles\HLApps-Deployment-master\RevitVersionsInfo.json" (
     del /f /q "C:\SourceFiles\HLApps-Deployment-master\RevitVersionsInfo.json"
