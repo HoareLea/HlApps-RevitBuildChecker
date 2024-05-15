@@ -35,6 +35,12 @@ $jsonContent = @{
     Versions = $versions
 } | ConvertTo-Json -Depth 10
 
+# Ensure the directory exists
+$outputDir = Split-Path -Path $JSONOutputFilePath
+if (-not (Test-Path -Path $outputDir)) {
+    New-Item -ItemType Directory -Path $outputDir -Force
+}
+
 # Write JSON content to a file
 $jsonContent | Set-Content -Path $JSONOutputFilePath
 
