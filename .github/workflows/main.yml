@@ -3,7 +3,7 @@ name: Run PowerShell Script and Upload File
 on:
   push:
     branches:
-      - dev
+      - main
   schedule:
     - cron: '0 0 * * 0'  # This runs the job every Sunday at midnight UTC
   workflow_dispatch:
