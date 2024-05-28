@@ -403,3 +403,4 @@ FodyWeavers.xsd
 /RevitBuildChecker/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
 /RevitBuildChecker/obj/Release/RevitBuildChecker.csproj.AssemblyReference.cache
 create_deployment.bat
+*.csproj
