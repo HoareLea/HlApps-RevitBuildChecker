@@ -37,24 +37,24 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="RevitAPI">
-      <HintPath>..\..\..\..\..\..\..\Program Files\Autodesk\Revit 2024\RevitAPI.dll</HintPath>
+      <HintPath>..\..\..\..\Program Files\Autodesk\Revit 2025\RevitAPI.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="RevitAPIUI">
-      <HintPath>..\..\..\..\..\..\..\Program Files\Autodesk\Revit 2024\RevitAPIUI.dll</HintPath>
+      <HintPath>..\..\..\..\Program Files\Autodesk\Revit 2025\RevitAPIUI.dll</HintPath>
       <Private>False</Private>
-    </Reference>
-    <Reference Include="RevitDBAPI">
-      <HintPath>..\..\..\..\Program Files\Autodesk\Revit 2024\RevitDBAPI.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+      <Private>False</Private>
     </Reference>
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Numerics" />
     <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
@@ -66,9 +66,8 @@
       <HintPath>..\packages\System.Text.Encodings.Web.9.0.0-preview.3.24172.9\lib\net462\System.Text.Encodings.Web.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.Text.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Text.Json.9.0.0-preview.3.24172.9\lib\net462\System.Text.Json.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="System.Text.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.8.0.0\lib\net462\System.Text.Json.dll</HintPath>
     </Reference>
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
@@ -80,9 +79,6 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http">
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
@@ -98,4 +94,7 @@
     <None Include="RevitBuildChecker.addin" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>$(SolutionDir)RevitBuildChecker\signtool.exe sign /fd SHA256 /f C:\SauceFiles\CharlieJones_CodeSigning.pfx /p  AegOy!2V9Z?6 C:\Users\jonesc4\HlApps-RevitBuildChecker\RevitBuildChecker\dist\RevitBuildChecker.dll</PostBuildEvent>
+  </PropertyGroup>
 </Project>
