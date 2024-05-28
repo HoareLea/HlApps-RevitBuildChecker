@@ -88,7 +88,7 @@ namespace RevitBuildChecker
                         //else
                         //{
                             //TaskDialog.Show("Error", $"Version data for Revit {localYear} not found in the file.");
-                            return Result.Failed;
+                            //return Result.Failed;
                         //}
                     }
                 }
