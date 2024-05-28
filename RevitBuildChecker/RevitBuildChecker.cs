@@ -85,11 +85,11 @@ namespace RevitBuildChecker
                             // Attempt to start the external application
                             System.Diagnostics.Process.Start(@"C:\windows\CCM\SCClient.exe", "softwarecenter:Page=AvailableSoftware FilterType=4");
                         }
-                        //else
-                        //{
-                        //    TaskDialog.Show("Error", $"Version data for Revit {localYear} not found in the file.");
-                        //    return Result.Failed;
-                        //}
+                        else
+                        {
+                            //TaskDialog.Show("Error", $"Version data for Revit {localYear} not found in the file.");
+                            return Result.Failed;
+                        }
                     }
                 }
                 else
