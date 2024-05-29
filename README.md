@@ -46,7 +46,7 @@ Replace `[PATH TO YOUR DLL]` with the path to the compiled DLL and `[UNIQUE GUID
 Once installed, the add-in will automatically check the Revit version on startup. If an update is required, a task dialog will appear with information on how to proceed.
 
 ## Latest Versions:
-View the (https://raw.githubusercontent.com/HoareLea/HlApps-RevitBuildChecker/main/RevitBuildChecker/dist/RevitVersionsInfo.json) file.
+View the [RevitVersionsInfo.json](https://raw.githubusercontent.com/HoareLea/HlApps-RevitBuildChecker/main/RevitBuildChecker/dist/RevitVersionsInfo.json) file.
 
 
 ## Contact
