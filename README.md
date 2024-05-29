@@ -46,15 +46,8 @@ Replace `[PATH TO YOUR DLL]` with the path to the compiled DLL and `[UNIQUE GUID
 Once installed, the add-in will automatically check the Revit version on startup. If an update is required, a task dialog will appear with information on how to proceed.
 
 ## Latest Versions:
-Below is a snippet of the latest Revit versions information. For the full list, view the [RevitVersionsInfo.json](RevitBuildChecker/dist/RevitVersionsInfo.json) file.
+View the [RevitVersionsInfo.json](RevitBuildChecker/dist/RevitVersionsInfo.json) file.
 
-```json
-{
-  "Revit2020": "20.2.10.1",
-  "Revit2021": "21.1.11.27",
-  "Revit2022": "22.1.10.8"
-}
-```
 
 ## Contact
 For support or to report issues, contact `DigitalSupport@hoarelea.com`.
