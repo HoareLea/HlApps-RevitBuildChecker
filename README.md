@@ -17,10 +17,10 @@ The Revit Build Checker is a Revit add-in developed to help manage and ensure th
 - .NET Framework 4.7.2 or higher.
 - Access to the internet to fetch the latest version data from GitHub.
 ### Install
-Download [install_RevitBuildChecker.exe](https://github.com/HoareLea/HlApps-RevitBuildChecker/releases/download/Latest/install_RevitBuildChecker.exe) and run to install.
+To install, download and run [install_RevitBuildChecker.exe](https://github.com/HoareLea/HlApps-RevitBuildChecker/releases/download/Latest/install_RevitBuildChecker.exe).
 
 ### Uninstall
-Download [Uninstall_RevitBuildChecker.bat](https://github.com/HoareLea/HlApps-RevitBuildChecker/releases/download/Latest/Uninstall_RevitBuildChecker.bat) and run to uninstall.
+To uninstall, download and run [Uninstall_RevitBuildChecker.bat](https://github.com/HoareLea/HlApps-RevitBuildChecker/releases/download/Latest/Uninstall_RevitBuildChecker.bat).
 
 ## Usage
 Once installed, the add-in will automatically check the Revit version on startup. If an update is required, a task dialog will appear with information on how to proceed.
