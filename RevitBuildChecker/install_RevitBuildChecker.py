@@ -62,4 +62,4 @@ try:
             shutil.copy(ADDIN_DESTINATION, addin_destination)
 except OSError as e:
     writehost(f"Error copying files: {e}")
-#pyinstaller --onefile --hidden-import=requests --hidden-import=ipaddress --add-data "RevitBuildChecker/install_RevitBuildChecker.py;." RevitBuildChecker/install_RevitBuildChecker.py
+#pyinstaller --clean --onefile  --hidden-import=requests --hidden-import=ipaddress --add-data "RevitBuildChecker/install_RevitBuildChecker.py;." RevitBuildChecker/install_RevitBuildChecker.py -i="dist\RBC2.ico" -n "install_RevitBuildChecker"
