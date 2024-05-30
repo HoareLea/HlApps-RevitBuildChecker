@@ -19,7 +19,7 @@ The Revit Build Checker is a Revit add-in developed to help manage and ensure th
 ### Install
 Download [install_RevitBuildChecker.exe](https://github.com/HoareLea/HlApps-RevitBuildChecker/releases/download/Latest/install_RevitBuildChecker.exe) and run to install.
 
-##Uninstall
+### Uninstall
 Download [Uninstall_RevitBuildChecker.bat](https://github.com/HoareLea/HlApps-RevitBuildChecker/releases/download/Latest/Uninstall_RevitBuildChecker.bat) and run to uninstall.
 
 ## Usage
