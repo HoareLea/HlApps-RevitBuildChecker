@@ -2,7 +2,7 @@
 
 ## Overview
 The Revit Build Checker is a Revit add-in designed to ensure your Autodesk Revit installations are always up to date. Leveraging the Revit API, this tool checks the installed Revit version on your machine and compares it against the latest versions available from a GitHub repository. If your version is outdated, the add-in will prompt you to update, preventing potential issues like model corruption.
-
+[dist/example/png]
 ## Features
 - **Version Check:** Compares your installed Revit version with the latest versions.
 - **Alerts:** Notifies you with detailed messages if your version is outdated.
