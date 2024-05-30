@@ -16,31 +16,11 @@ The Revit Build Checker is a Revit add-in developed to help manage and ensure th
 - Autodesk Revit (2020 or later versions are supported).
 - .NET Framework 4.7.2 or higher.
 - Access to the internet to fetch the latest version data from GitHub.
+### Install
+Download [install_RevitBuildChecker.exe](https://github.com/HoareLea/HlApps-RevitBuildChecker/releases/download/Latest/install_RevitBuildChecker.exe) and run to install.
 
-### Setup
-1. Clone the repository or download the source code.
-2. Build the solution using Visual Studio 2019 or later.
-3. Add the resulting DLL as an Add-In in Revit by modifying the `RevitAddIns` manifest file typically located at `%APPDATA%\Autodesk\Revit\Addins\{Revit Year}\`.
-
-### Adding the Add-In to Revit
-1. Create a new text file in the appropriate Addins folder for your version of Revit.
-2. Rename the text file to `RevitBuildChecker.addin`.
-3. Edit the file to include the following XML configuration:
-
-```xml
-<?xml version="1.0" encoding="utf-8" standalone="no"?>
-<RevitAddIns>
-  <AddIn Type="Application">
-    <Name>RevitBuildChecker</Name>
-    <Assembly>"[PATH TO YOUR DLL]"</Assembly>
-    <AddInId>[UNIQUE GUID]</AddInId>
-    <FullClassName>RevitBuildChecker.App</FullClassName>
-    <VendorId>HL</VendorId>
-    <VendorDescription>Hoare Lea, Digital Support</VendorDescription>
-  </AddIn>
-</RevitAddIns>
-```
-Replace `[PATH TO YOUR DLL]` with the path to the compiled DLL and `[UNIQUE GUID]` with a unique identifier for the add-in.
+##Uninstall
+Download [Uninstall_RevitBuildChecker.bat](https://github.com/HoareLea/HlApps-RevitBuildChecker/releases/download/Latest/Uninstall_RevitBuildChecker.bat) and run to uninstall.
 
 ## Usage
 Once installed, the add-in will automatically check the Revit version on startup. If an update is required, a task dialog will appear with information on how to proceed.
