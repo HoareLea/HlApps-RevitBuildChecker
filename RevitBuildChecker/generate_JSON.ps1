@@ -1,7 +1,11 @@
-﻿# Fetch the webpage content
+﻿param(
+    [string]$OutputFilePath = "C:\Users\jonesc4\HlApps-RevitBuildChecker\RevitBuildChecker\dist\RevitVersionsInfo.json"
+)
+
+# Fetch the webpage content
 $url = "https://www.autodesk.com/support/technical/article/caas/sfdcarticles/sfdcarticles/How-to-tie-the-Build-number-with-the-Revit-update.html"
 $response = Invoke-WebRequest -Uri $url
-$JSONOutputFilePath = "C:\Users\jonesc4\HlApps-RevitBuildChecker\RevitBuildChecker\dist\RevitVersionsInfo.json"
+																											   
 
 # Decode Unicode characters
 $decodedContent = $response.Content -replace '\\u003c', '<' -replace '\\u003e', '>'
@@ -46,13 +50,13 @@ $jsonContent = @{
 } | ConvertTo-Json -Depth 10
 
 # Ensure the directory exists
-$outputDir = Split-Path -Path $JSONOutputFilePath
+$outputDir = Split-Path -Path $OutputFilePath
 if (-not (Test-Path -Path $outputDir)) {
     New-Item -ItemType Directory -Path $outputDir -Force
 }
 
 # Write JSON content to a file
-$jsonContent | Set-Content -Path $JSONOutputFilePath
+$jsonContent | Set-Content -Path $OutputFilePath
 
 # Open the JSON file
-Invoke-Item -Path $JSONOutputFilePath
+Invoke-Item -Path $OutputFilePath
