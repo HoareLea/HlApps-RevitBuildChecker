@@ -1,4 +1,7 @@
-﻿param(
+﻿#Read the autodesk webpage and generate a JSON file to include the latest Revit versions.
+#Optionally include a parameter to save the file to a specified location: generate_JSON.ps1 -OutputFilePath "PATH"
+
+param(
     [string]$OutputFilePath = "C:\Users\jonesc4\HlApps-RevitBuildChecker\RevitBuildChecker\dist\RevitVersionsInfo.json"
 )
 
