@@ -95,6 +95,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>$(SolutionDir)RevitBuildChecker\signtool.exe sign /fd SHA256 /f C:\SauceFiles\CharlieJones_CodeSigning.pfx /p  AegOy!2V9Z?6 C:\Users\jonesc4\HlApps-RevitBuildChecker\RevitBuildChecker\dist\RevitBuildChecker.dll</PostBuildEvent>
+    <PostBuildEvent>C:\Users\charlie.jones1\source\repos\HoareLea\HlApps-RevitBuildChecker\RevitBuildChecker\signtool.exe sign /fd SHA256 /f C:\SauceFiles\CharlieJones_CodeSigning.pfx /p  AegOy!2V9Z?6 C:\Users\charlie.jones1\source\repos\HoareLea\HlApps-RevitBuildChecker\RevitBuildChecker\dist\RevitBuildChecker.dll"
+explorer /select,C:\Users\charlie.jones1\source\repos\HoareLea\HlApps-RevitBuildChecker\RevitBuildChecker\dist\RevitBuildChecker.dll</PostBuildEvent>
   </PropertyGroup>
 </Project>
