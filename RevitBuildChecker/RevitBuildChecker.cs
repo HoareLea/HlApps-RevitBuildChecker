@@ -83,7 +83,7 @@ namespace RevitBuildChecker
                         {
                             TaskDialog.Show("IMPORTANT", "Please close Revit before updating.");
                             // Attempt to start the external application
-                            System.Diagnostics.Process.Start(@"C:\windows\CCM\SCClient.exe", "softwarecenter:Page=AvailableSoftware FilterType=4");
+                            System.Diagnostics.Process.Start(@"C:\windows\CCM\SCClient.exe");
                         }
                         //else
                         //{
