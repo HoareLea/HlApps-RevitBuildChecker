@@ -14,7 +14,7 @@ The Revit Build Checker is a Revit add-in designed to ensure your Autodesk Revit
 ## Installation
 
 ### Prerequisites
-- Autodesk Revit (2020 or later).
+- Autodesk Revit (2023 or later).
 - .NET Framework 4.7.2 or higher.
 - Internet access to fetch the latest version data from GitHub.
 
